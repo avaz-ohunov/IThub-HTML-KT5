@@ -1,0 +1,82 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+  }
+
+.content {
+    display: flex;
+    align-items: end;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://pushinka.top/uploads/posts/2023-04/thumbs/1680746877_pushinka-top-p-smeshariki-fon-bez-geroev-vkontakte-17.webp);
+    background-size: cover;
+}
+
+/* Стилизация дороги */
+.road {
+    width: 100%;
+    height: 50px;
+    background: gray;
+    position: absolute;
+    bottom: 0;
+}
+
+/* Стилизация машинки */
+.car {
+    width: 200px;
+    height: 50px;
+    margin-bottom: 10px;
+    background: #e74c3c; /* Цвет кузова */
+    border-radius: 20px 20px 20px 20px / 60px 60px 10px 10px; /* Закругление для формы кузова */
+    position: relative;
+    animation: drive 5s linear forwards; /* Анимация движения */
+}
+
+/* Стилизация колёс */
+.wheel {
+    width: 40px;
+    height: 40px;
+    background: #34495e;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -10px;
+}
+
+.wheel::before { /* Диски колёс */
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.wheel:first-child { /* Позиционирование левого колеса */
+    left: 30px;
+}
+
+.wheel:last-child { /* Позиционирование правого колеса */
+    right: 30px;
+}
+
+/* Определение ключевых кадров анимации */
+@keyframes drive {
+    from {
+        left: -250px; /* Стартовая позиция вне экрана */
+    }
+
+    to {
+        left: calc(100% - 250px); /* Конечная позиция, отступ 50px от правого края */
+    }
+}
+
+@media(max-height: 400px) {
+    .content {
+        background-position: bottom;
+    }
+}
